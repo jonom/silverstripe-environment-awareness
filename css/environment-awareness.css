@@ -1,0 +1,29 @@
+/* ==========================================================================
+   Environment awareness
+   ========================================================================== */
+
+.environment-notice {
+    background: #cccccc;
+    color: #fff;
+    padding: 0.8em;
+    text-align: center;
+}
+.environment-notice p {
+    margin: 0;
+    line-height: 13px;
+}
+.environment-notice a {
+    text-decoration: underline;
+    color: #b00d00;
+}
+.environment-notice b {
+    font-weight: bold;
+}
+.environment-notice i {
+    font-size: 80%;
+    font-style: italic;
+}
+.cms-menu.collapsed .environment-notice .tail,
+.cms-menu.collapsed .environment-notice i {
+	display: none;
+}

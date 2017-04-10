@@ -1,0 +1,17 @@
+---
+name: environment-awareness
+---
+EnvironmentAwareness:
+  environments:
+    Development:
+      color: '#f26522'
+      description: 'Local development site'
+    Stage:
+      color: '#8560a8'
+      description: 'Pre-launch testing'
+    Production:
+      color: '#00a651'
+      description: 'Live website'
+LeftAndMain:
+  extra_requirements_css:
+    - 'environment-awareness/css/environment-awareness.css'
