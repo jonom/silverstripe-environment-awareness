@@ -1,17 +1,28 @@
 {
 	"name": "jonom/silverstripe-environment-awareness",
 	"description": "Indicate current environment to SilverStripe users",
-	"type": "silverstripe-module",
-	"keywords": ["silverstripe", "environment", "environment awareness"],
+	"type": "silverstripe-vendormodule",
+	"keywords": [
+		"silverstripe",
+		"environment",
+		"environment awareness"
+	],
 	"license": "MIT",
-	"authors": [{
-		"name": "Jonathon Menz",
-		"homepage": "http://jonathonmenz.com"
-	}],
+	"authors": [
+		{
+			"name": "Jonathon Menz",
+			"homepage": "https://jonomenz.com"
+		}
+	],
 	"require": {
-		"silverstripe/framework": "^3.1"
+		"silverstripe/vendor-plugin": "^1",
+		"silverstripe/framework": "^4.5"
 	},
-	"extra": {
-		"installer-name": "environment-awareness"
-	}
+	"autoload": {
+		"psr-4": {
+			"JonoM\\EnvironmentAwareness\\": "src/"
+		}
+	},
+	"prefer-stable": true,
+	"minimum-stability": "dev"
 }

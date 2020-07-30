@@ -1,12 +1,12 @@
 # Environment Awareness for SilverStripe
 
-Have you ever thought you were working locally, and deleted something from the live site? Me too! I guess we don't look at the URL bar enough. This module adds a notice to the CMS to let you know which environment you are working in.
+Have you ever thought you were working locally, and deleted something from the live site? Me too! I guess we don't look at the URL bar enough. This module adds a notice to the CMS and front-end to let you know which environment you are working in.
 
 ![CMS menu comparison](docs/images/left-menu-comparison.png)
 
 ## Requirements
 
-SilverStripe 3.1+ (SS 3.5 tested)
+SilverStripe 4.5+ (^3.1 support with previous versions)
 
 ## Documentation
 

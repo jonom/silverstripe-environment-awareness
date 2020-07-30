@@ -1,5 +1,14 @@
 <?php
 
+namespace JonoM\EnvironmentAwareness;
+
+use SilverStripe\Core\Config\Config;
+use SilverStripe\Core\Environment;
+use SilverStripe\Security\Permission;
+use SilverStripe\Security\Member;
+use SilverStripe\Security\Security;
+use SilverStripe\View\TemplateGlobalProvider;
+
 /**
  * Additional functions to be available in all templates.
  */
@@ -12,32 +21,33 @@ class EnvironmentAwareness implements TemplateGlobalProvider
 
     public static function EnvironmentLabel()
     {
-        if (!defined('SS_ENVIRONMENT_LABEL')) return false;
-        return SS_ENVIRONMENT_LABEL;
+        return Environment::getEnv('SS_ENVIRONMENT_LABEL');
     }
 
-    public static function LeftMenuEnvironmentLabel()
+    public static function getEnvironmentProp($prop, $fallback = null)
     {
         $label = self::EnvironmentLabel();
         if (!$label) return false;
-        $html = substr($label,0,1) . '<span class="tail">' . substr($label,1) . '</span>';
-        return DBField::create_field('HTMLText', $html);
+        $envs = self::getEnvironments();
+        if (!array_key_exists($label, $envs) || !array_key_exists($prop, $envs[$label])) return $fallback;
+        return $envs[$label][$prop];
+    }
+
+    public static function EnvironmentShortLabel()
+    {
+        $shortLabel = self::getEnvironmentProp('short_label');
+        if (!$shortLabel && $label = self::EnvironmentLabel()) $shortLabel = substr($label,0,1);
+        return $shortLabel;
     }
 
     public static function EnvironmentDescription()
     {
-        if (!defined('SS_ENVIRONMENT_LABEL')) return false;
-        $envs = self::getEnvironments();
-        if (!array_key_exists(SS_ENVIRONMENT_LABEL, $envs) || !array_key_exists('description', $envs[SS_ENVIRONMENT_LABEL])) return '#cccccc';
-        return $envs[SS_ENVIRONMENT_LABEL]['description'];
+        return self::getEnvironmentProp('description');
     }
 
     public static function EnvironmentColor()
     {
-        if (!defined('SS_ENVIRONMENT_LABEL')) return false;
-        $envs = self::getEnvironments();
-        if (!array_key_exists(SS_ENVIRONMENT_LABEL, $envs) || !array_key_exists('color', $envs[SS_ENVIRONMENT_LABEL])) return '#cccccc';
-        return $envs[SS_ENVIRONMENT_LABEL]['color'];
+        return self::getEnvironmentProp('color', '#cccccc');
     }
 
     public static function ShowEnvironmentNotice()
@@ -47,7 +57,7 @@ class EnvironmentAwareness implements TemplateGlobalProvider
         // If no specific members are set, show to all CMS users
         if (!$members) return true;
         // Otherwise only show to indicated members
-        $member = Member::currentUser();
+        $member = Security::getCurrentUser();
         $identifierField = Member::config()->unique_identifier_field;
         return ($member && is_array($members)) ? in_array($member->{$identifierField}, $members) : false;
     }
@@ -56,8 +66,8 @@ class EnvironmentAwareness implements TemplateGlobalProvider
     {
         return array(
             'EnvironmentLabel',
+            'EnvironmentShortLabel',
             'EnvironmentColor',
-            'LeftMenuEnvironmentLabel',
             'EnvironmentDescription',
             'ShowEnvironmentNotice'
         );

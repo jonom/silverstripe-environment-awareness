@@ -4,14 +4,14 @@ name: environment-awareness
 EnvironmentAwareness:
   environments:
     Development:
+      short_label: 'DEV'
       color: '#f26522'
       description: 'Local development site'
     Stage:
+      short_label: 'STAGE'
       color: '#8560a8'
       description: 'Pre-launch testing'
     Production:
+      short_label: 'PROD'
       color: '#00a651'
       description: 'Live website'
-LeftAndMain:
-  extra_requirements_css:
-    - 'environment-awareness/css/environment-awareness.css'
