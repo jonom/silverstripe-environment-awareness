@@ -52,7 +52,7 @@ class EnvironmentAwareness implements TemplateGlobalProvider
 
     public static function ShowEnvironmentNotice()
     {
-        if (!Permission::check("CMS_ACCESS")) return false;
+        if (!self::EnvironmentLabel() || !Permission::check("CMS_ACCESS")) return false;
         $members = Config::inst()->get('EnvironmentAwareness', 'Members');
         // If no specific members are set, show to all CMS users
         if (!$members) return true;
