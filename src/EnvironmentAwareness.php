@@ -14,6 +14,11 @@ use SilverStripe\View\TemplateGlobalProvider;
  */
 class EnvironmentAwareness implements TemplateGlobalProvider
 {
+    private static $defaults = [
+        'live' => 'Production',
+        'test' => 'Stage',
+        'dev' => 'Development'
+    ];
     public static function getEnvironments()
     {
         return Config::inst()->get('EnvironmentAwareness', 'environments');
@@ -21,7 +26,13 @@ class EnvironmentAwareness implements TemplateGlobalProvider
 
     public static function EnvironmentLabel()
     {
-        return Environment::getEnv('SS_ENVIRONMENT_LABEL');
+        $label = Environment::getEnv('SS_ENVIRONMENT_LABEL');
+        if ($label === null) {
+            $type = str_to_lower(Environment::getEnv('SS_ENVIRONMENT_TYPE'));
+            return self::$defaults[$type] ?? false;
+        }
+        
+        return $label;
     }
 
     public static function getEnvironmentProp($prop, $fallback = null)
