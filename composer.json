@@ -1,6 +1,6 @@
 {
 	"name": "jonom/silverstripe-environment-awareness",
-	"description": "Indicate current environment to SilverStripe users",
+	"description": "Indicate current environment to Silverstripe users",
 	"type": "silverstripe-vendormodule",
 	"keywords": [
 		"silverstripe",
@@ -15,8 +15,8 @@
 		}
 	],
 	"require": {
-		"silverstripe/vendor-plugin": "^1",
-		"silverstripe/framework": "^4.5"
+		"silverstripe/vendor-plugin": "^1 || ^2",
+		"silverstripe/framework": "^4.5 || ^5"
 	},
 	"autoload": {
 		"psr-4": {
