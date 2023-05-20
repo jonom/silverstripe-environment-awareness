@@ -1,4 +1,4 @@
-<style type="text/css">
+<style>
 	.environment-notice {
 		background: #cccccc;
 		color: #fff;

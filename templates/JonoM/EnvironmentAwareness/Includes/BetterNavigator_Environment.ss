@@ -1,5 +1,5 @@
 <% if $ShowEnvironmentNotice %>
-	<style type="text/css">
+	<style>
 		#BetterNavigatorStatus:after {
 			content: "{$EnvironmentLabel}";
 			background-color: $EnvironmentColor;

@@ -8,7 +8,7 @@ SS_ENVIRONMENT_LABEL="Production"
 ```
 2. Configure properties for each of these environments in your project config yml, grouped by their labels:
 ```yml
-JonoM\\EnvironmentAwareness\\EnvironmentAwareness:
+JonoM\EnvironmentAwareness\EnvironmentAwareness:
   environments:
     Development:
       short_label: 'DEV' # Used in CMS when side menu is collapsed
@@ -23,7 +23,7 @@ JonoM\\EnvironmentAwareness\\EnvironmentAwareness:
 
 **Tip:** The labels *'Development'*, *'Stage'* and *'Production'* have pre-defined colours and descriptions, so you can use these without additional configuration if you like.
 
-__Note:__ SilverStripe has a concept of 'environment type' (`SS_ENVIRONMENT_TYPE`) which can be set to 'live', 'test' or 'dev'. This is more like a 'mode' than a type though, because there is nothing to stop you temporarily setting your production environment type to 'dev' to get some debugging information, or your development environment to 'live' to simulate production configuration locally. So you can't really on the environment type to know which server environment you're interacting with. `SS_ENVIRONMENT_LABEL` is intended to be a genuine constant, so you can have clarity about which environment you are working on.
+__Note:__ Silverstripe has a concept of 'environment type' (`SS_ENVIRONMENT_TYPE`) which can be set to 'live', 'test' or 'dev'. This is more like a 'mode' than a type though, because there is nothing to stop you temporarily setting your production environment type to 'dev' to get some debugging information, or your development environment to 'live' to simulate production configuration locally. So you can't really on the environment type to know which server environment you're interacting with. `SS_ENVIRONMENT_LABEL` is intended to be a genuine constant, so you can have clarity about which environment you are working on.
 
 ## Include front-end environment notice
 
@@ -41,7 +41,7 @@ __Note:__ SilverStripe has a concept of 'environment type' (`SS_ENVIRONMENT_TYPE
 
 If you only have two environments (local and live), you probably don't need all of your CMS users to see environment notices. You can indicate individual Members that should see the notices like so:
 ```yml
-JonoM\\EnvironmentAwareness\\EnvironmentAwareness:
+JonoM\EnvironmentAwareness\EnvironmentAwareness:
   Members:
     - developer1@yourcompany.com
     - developer2@yourcompany.com
