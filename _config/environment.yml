@@ -1,7 +1,7 @@
 ---
 name: environment-awareness
 ---
-Jonom\EnvironmentAwareness\EnvironmentAwareness:
+JonoM\EnvironmentAwareness\EnvironmentAwareness:
   environments:
     Development:
       short_label: 'DEV'
