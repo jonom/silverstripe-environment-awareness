@@ -20,7 +20,13 @@ class EnvironmentAwareness implements TemplateGlobalProvider
 
     public static function getEnvironments()
     {
-        return self::config()->get('environments');
+        $envs = self::config()->get('environments');
+        // Legacy fallback
+        if (!$envs) {
+            $envs = Config::inst()->get('EnvironmentAwareness', 'environments');
+        }
+        
+        return $envs;
     }
 
     public static function EnvironmentLabel()
