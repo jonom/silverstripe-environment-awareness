@@ -3,6 +3,7 @@
 namespace JonoM\EnvironmentAwareness;
 
 use SilverStripe\Core\Config\Configurable;
+use SilverStripe\Core\Config\Config;
 use SilverStripe\Core\Environment;
 use SilverStripe\Security\Member;
 use SilverStripe\Security\Permission;
