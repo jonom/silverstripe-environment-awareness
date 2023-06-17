@@ -45,6 +45,10 @@ __Note:__ Silverstripe has a concept of 'environment type' (`SS_ENVIRONMENT_TYPE
 
 If you only have two environments (local and live), you probably don't need all of your CMS users to see environment notices. You can indicate individual Members that should see the notices like so:
 ```yml
+---
+name: my-environment-awareness
+after: environment-awareness
+---
 JonoM\EnvironmentAwareness\EnvironmentAwareness:
   Members:
     - developer1@yourcompany.com
