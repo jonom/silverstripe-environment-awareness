@@ -6,7 +6,7 @@ Have you ever thought you were working locally, and deleted something from the l
 
 ## Requirements
 
-Silverstripe 4.5+ (^3.1 support with previous versions)
+Silverstripe ^4.5|^5 (^3.1 support with previous versions)
 
 ## Documentation
 
