@@ -8,6 +8,10 @@ SS_ENVIRONMENT_LABEL="Production"
 ```
 2. Configure properties for each of these environments in your project config yml, grouped by their labels:
 ```yml
+---
+name: my-environment-awareness
+after: environment-awareness
+---
 JonoM\EnvironmentAwareness\EnvironmentAwareness:
   environments:
     Development:
