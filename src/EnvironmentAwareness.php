@@ -21,10 +21,25 @@ class EnvironmentAwareness implements TemplateGlobalProvider
 
     public static function getEnvironments()
     {
-        // Legacy fallback
-        $envs = Config::inst()->get('EnvironmentAwareness', 'environments');
-        if (!$envs) {
-            $envs = self::config()->get('environments');            
+        return self::loadConfig('environments');
+    }
+
+    public static function getMembers()
+    {
+        return self::loadConfig('Members');
+    }
+
+    private static function loadConfig($key)
+    {
+        // load legacy non-namespaced config
+        $legacy = Config::inst()->get('EnvironmentAwareness', $key);
+
+        // load namespaced config
+        $envs = self::config()->get($key);
+
+        // merge if necessary
+        if ($legacy && is_array($legacy) && $envs && is_array($envs)) {
+            $envs = array_replace_recursive($envs, $legacy);
         }
 
         return $envs;
@@ -75,7 +90,7 @@ class EnvironmentAwareness implements TemplateGlobalProvider
         if (!self::EnvironmentLabel() || !Permission::check("CMS_ACCESS")) {
             return false;
         }
-        $members = self::config()->get('Members');
+        $members = self::getMembers();
         // If no specific members are set, show to all CMS users
         if (!$members) {
             return true;
