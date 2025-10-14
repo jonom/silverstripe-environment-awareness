@@ -69,7 +69,7 @@ class EnvironmentAwareness implements TemplateGlobalProvider
     {
         $shortLabel = self::getEnvironmentProp('short_label');
         if (!$shortLabel && $label = self::EnvironmentLabel()) {
-            $shortLabel = substr($label, 0, 1);
+            $shortLabel = substr((string) $label, 0, 1);
         }
 
         return $shortLabel;
@@ -104,12 +104,12 @@ class EnvironmentAwareness implements TemplateGlobalProvider
 
     public static function get_template_global_variables()
     {
-        return array(
+        return [
             'EnvironmentLabel',
             'EnvironmentShortLabel',
             'EnvironmentColor',
             'EnvironmentDescription',
             'ShowEnvironmentNotice'
-        );
+        ];
     }
 }

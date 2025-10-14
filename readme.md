@@ -6,22 +6,18 @@ Have you ever thought you were working locally, and deleted something from the l
 
 ## Requirements
 
-Silverstripe ^4.5|^5 (^3.1 support with previous versions)
+Silverstripe ^4.5|^5|^6 (^3.1 support with previous versions)
 
 ## Documentation
 
-* [Installation](docs/en/installation.md)
-* [How to use](docs/en/how-to-use.md)
-* [Troubleshooting](docs/en/troubleshooting.md)
-* [License](license.md)
-* [Contributing](contributing.md)
+- [Installation](docs/en/installation.md)
+- [How to use](docs/en/how-to-use.md)
+- [Troubleshooting](docs/en/troubleshooting.md)
+- [License](license.md)
+- [Contributing](contributing.md)
 
 ## Maintainer contact
 
 [Jono Menz](https://jonomenz.com)
 
-## Sponsorship
-
-If you want to boost morale of the maintainer you're welcome to make a small monthly donation through [**GitHub**](https://github.com/sponsors/jonom), or a one time donation through [**PayPal**](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=Z5HEZREZSKA6A). ❤️ Thank you!
-
-Please also feel free to [get in touch](https://jonomenz.com) if you want to hire the maintainer to develop a new feature, or discuss another opportunity.
+Please feel free to [get in touch](https://jonomenz.com) if you want to hire the maintainer to develop a new feature, or discuss another opportunity.
